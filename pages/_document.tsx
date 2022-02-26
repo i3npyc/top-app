@@ -4,8 +4,8 @@ import Document, {
   Main,
   NextScript,
   DocumentContext,
-  DocumentInitialProps,
-} from "next/document";
+  DocumentInitialProps
+} from 'next/document';
 
 class CustomDocument extends Document {
   static async getInitialProps(

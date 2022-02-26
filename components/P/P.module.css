@@ -1,0 +1,14 @@
+.small {
+  font-size: 14px;
+  line-height: 171%;
+}
+
+.medium {
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.big {
+  font-size: 18px;
+  line-height: 161%;
+}
