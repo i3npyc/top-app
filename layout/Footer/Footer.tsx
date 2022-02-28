@@ -1,16 +1,16 @@
 import React from 'react';
+import cn from 'classnames';
+import { format } from 'date-fns';
 
 import { FooterProps } from './FooterProps';
 import styles from './Footer.module.css';
 
-export const Footer = ({ ...props }: FooterProps) => {
+export const Footer = ({ className, ...props }: FooterProps) => {
   return (
-    <div {...props}>
-      <div className={styles.copyright}>
-        OwlTop © 2020 - 2022 Все права защищены
-      </div>
-      <div className={styles.agreement}>Пользовательское соглашение</div>
-      <div className={styles.politics}>Политика конфиденциальности</div>
-    </div>
+    <footer {...props} className={cn(className, styles.footer)}>
+      <div>OwlTop © 2020 - {format(new Date(), 'yyyy')} Все права защищены</div>
+      <a href='#' target='_blank'>Пользовательское соглашение</a>
+      <a href='#' target='_blank'>Политика конфиденциальности</a>
+    </footer>
   );
 };

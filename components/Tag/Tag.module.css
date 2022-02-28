@@ -1,6 +1,8 @@
 .tag {
   display: inline-block;
+
   margin-right: 5px;
+
   border-radius: 10px;
 }
 
@@ -24,11 +26,11 @@
 }
 
 .red {
-  background-color: #de0000;
+  background-color: #DE0000;
 }
 
 .grey {
-  background-color: #b3c0d9;
+  background-color: #B3C0D9;
 }
 
 .red,

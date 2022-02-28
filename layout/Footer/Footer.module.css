@@ -1,12 +1,24 @@
-.copyright {
+.footer {
+  display: grid;
 
+  padding: 25px 32px;
+
+  color: var(--white);
+
+  background-color: var(--primary);
+
+  font-weight: 500;
+  line-height: 20px;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px 40px;
 }
 
-.agreement {
-  text-align: right;
-
+.footer a:hover {
+  color: var(--gray-light);
 }
 
-.politics {
-
+@media (max-width: 765px) {
+  .footer {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,16 +1,19 @@
 .wrapper {
   display: grid;
+  gap: 0 30px;
   grid-template-columns: auto 230px minmax(320px, 1200px) auto;
   grid-template-rows: auto 1fr auto;
+
   min-height: 100vh;
   grid-template-areas:
-    '. header header .'
-    '. sidebar body .'
-    'footer footer footer footer';
+    ". header header ."
+    ". sidebar body ."
+    "footer footer footer footer";
 }
 
 .header {
   grid-area: header;
+
   display: none;
 }
 
@@ -23,26 +26,16 @@
 }
 
 .footer {
-  height: 72px;
   grid-area: footer;
-  grid-template-columns: 1fr 2fr 1fr;
-  display: grid;
-
-  background: #7653fc;
-
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
-  color: #ffffff;
 }
 
 @media (max-width: 765px) {
   .wrapper {
     grid-template-columns: minmax(320px, 1fr);
     grid-template-areas:
-      'header'
-      'body'
-      'footer';
+      "header"
+      "body"
+      "footer";
   }
 
   .sidebar {
