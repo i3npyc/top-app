@@ -12,12 +12,23 @@ import { MenuItem } from '../../interfaces/menu.interface';
 import { firstLevelMenu } from '../../helpers/helpers';
 
 import { withLayout } from '../../layout/Layout';
+import { TopPageComponent } from '../../page-components';
 
-const Courses = ({ menu, page, products }: CoursesProps): JSX.Element => {
-  return <div>{products && products.length}</div>;
+const TopPage = ({
+  firstCategory,
+  page,
+  products
+}: TopPageProps): JSX.Element => {
+  return (
+    <TopPageComponent
+      firstCategory={firstCategory}
+      page={page}
+      products={products}
+    />
+  );
 };
 
-export default withLayout(Courses);
+export default withLayout(TopPage);
 
 export const getStaticPaths: GetStaticPaths = async () => {
   let paths: string[] = [];
@@ -38,7 +49,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<CoursesProps> = async ({
+export const getStaticProps: GetStaticProps<TopPageProps> = async ({
   params
 }: GetStaticPropsContext<ParsedUrlQuery>) => {
   if (!params) {
@@ -64,7 +75,7 @@ export const getStaticProps: GetStaticProps<CoursesProps> = async ({
     if (!menu.length) {
       return {
         notFound: true
-      }
+      };
     }
     const { data: page } = await axios.get<TopPageModel>(
       process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/byAlias/' + params.alias
@@ -91,7 +102,7 @@ export const getStaticProps: GetStaticProps<CoursesProps> = async ({
   }
 };
 
-interface CoursesProps extends Record<string, unknown> {
+interface TopPageProps extends Record<string, unknown> {
   menu: MenuItem[];
   firstCategory: TopLevelCategory;
   page: TopPageModel;

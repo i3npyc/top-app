@@ -6,7 +6,6 @@ import ServicesIcon from './icons/services.svg';
 import BooksIcon from './icons/books.svg';
 import ProductsIcon from './icons/products.svg';
 
-
 export const firstLevelMenu: FirstLevelMenuItem[] = [
   {
     id: TopLevelCategory.Courses,
@@ -33,3 +32,9 @@ export const firstLevelMenu: FirstLevelMenuItem[] = [
     icon: <ProductsIcon />
   }
 ];
+
+export const priceRu = (price: number): string =>
+  price
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+    .concat(' ₽');
