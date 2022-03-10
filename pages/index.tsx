@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import axios from 'axios';
 
 import { MenuItem } from '../interfaces/menu.interface';
-import { Htag, Button, P, Tag, Rating } from '../components';
+import { Htag, Button, P, Tag, Rating, Input, Textarea } from '../components';
 import { withLayout } from '../layout/Layout';
 
 const Home = ({ menu }: HomeProps): JSX.Element => {
@@ -29,6 +29,8 @@ const Home = ({ menu }: HomeProps): JSX.Element => {
         Зелёный
       </Tag>
       <Rating rating={rating} setRating={setRating} isEditable />
+      <Input placeholder="test" />
+      <Textarea />
     </>
   );
 };
