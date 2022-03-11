@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { KeyboardEvent, useState } from 'react';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 
@@ -11,7 +11,7 @@ import styles from './Search.module.css';
 
 export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
   const [search, setSearch] = useState<string>('');
-  const router = useRouter()
+  const router = useRouter();
 
   const callSearch = () => {
     router.push({
@@ -19,8 +19,12 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
       query: {
         q: search
       }
-    })
-  }
+    });
+  };
+
+  const handleKey = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') callSearch();
+  };
 
   return (
     <div className={cn(className, styles.search)} {...props}>
@@ -29,8 +33,13 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
         placeholder="Поиск..."
         value={search}
         onChange={e => setSearch(e.target.value)}
+        onKeyDown={handleKey}
       />
-      <Button appearance="primary" className={styles.button} onClick={callSearch}>
+      <Button
+        appearance="primary"
+        className={styles.button}
+        onClick={callSearch}
+      >
         <SearchIcon />
       </Button>
     </div>

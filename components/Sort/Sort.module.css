@@ -29,3 +29,9 @@
 .sort span:not(.active) {
   grid-template-columns: 1fr;
 }
+
+@media (max-width: 450px) {
+  .sort {
+    gap: 20px;
+  }
+}

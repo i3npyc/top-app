@@ -1,4 +1,5 @@
 .title {
+  margin-bottom: 20px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
@@ -37,4 +38,10 @@
 
 .seo p {
   margin-top: 15px;
+}
+
+@media (max-width: 640px) {
+  .title {
+    grid-template-columns: auto 1fr;
+  }
 }

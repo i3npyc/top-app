@@ -17,3 +17,10 @@
   font-weight: 600;
   line-height: 27px;
 }
+
+@media (max-width: 640px) {
+  .h1 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+}
