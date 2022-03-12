@@ -40,8 +40,9 @@
   margin-top: 15px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   .title {
     grid-template-columns: auto 1fr;
+    gap: 30px;
   }
 }

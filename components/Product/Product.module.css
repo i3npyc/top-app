@@ -206,6 +206,7 @@
   }
 
   .tags {
+    margin-bottom: 10px;
     grid-area: tags;
   }
 
@@ -218,6 +219,7 @@
   }
 
   .rating {
+    white-space: nowrap;
     grid-area: rating;
   }
 
@@ -257,6 +259,10 @@
   .actions {
     grid-area: actions;
   }
+
+  .characteristic {
+    padding-right: 0;
+  }
 }
 
 @media (max-width: 640px) {
@@ -286,21 +292,48 @@
     display: flex;
     font-size: 16px;
   }
-  
+
   .credit {
     margin-bottom: 15px;
     font-size: 16px;
   }
 }
 
-@media (max-width: 380px) {
-  .price {
-    flex-direction: column;
-    align-items: start;
+@media (max-width: 440px) {
+  .product {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'logo'
+      'title'
+      'tags'
+      'priceTitle'
+      'price'
+      'creditTitle'
+      'credit'
+      'rateTitle'
+      'rating'
+      'hr'
+      'description'
+      'feature'
+      'comparisons'
+      'hr2'
+      'actions';
   }
 
+  .logo {
+    margin-bottom: 5px;
+  }
+  .title {
+    font-size: 18px;
+  }
+
+  .priceTitle,
+  .creditTitle,
+  .rateTitle {
+    margin-bottom: 2px;
+  }
   .actions {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 }
