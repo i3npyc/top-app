@@ -1,8 +1,9 @@
 .title {
-  margin-bottom: 20px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
   align-items: center;
+
+  margin-bottom: 20px;
+  grid-template-columns: auto 1fr auto;
   justify-items: left;
   gap: 19px;
 }
@@ -10,6 +11,7 @@
 .hhTitle {
   display: grid;
   grid-template-columns: auto 1fr;
+
   align-items: baseline;
   justify-items: left;
   gap: 20px;
@@ -22,6 +24,7 @@
 
 .seo h2 {
   margin: 15px 0;
+
   font-size: 18px;
   line-height: 161%;
 }
@@ -32,8 +35,8 @@
 }
 
 .seo li {
-  margin-left: 30px;
   margin-bottom: 15px;
+  margin-left: 30px;
 }
 
 .seo p {

@@ -1,16 +1,18 @@
 .opened {
   max-height: auto;
   padding: 30px;
+
   transform: translate(0, -5px);
 }
 
 .closed {
   overflow: hidden;
+
   max-height: 0;
   padding: 0;
 }
 
-@media (max-width: 640px){
+@media (max-width: 640px) {
   .opened {
     padding: 20px;
   }

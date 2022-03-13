@@ -2,7 +2,9 @@
   display: grid;
   grid-template-columns: [start] auto 1fr auto [end];
   gap: 20px 30px;
+
   align-items: center;
+
   font-size: 14px;
   line-height: 24px;
 }
@@ -22,6 +24,7 @@
 
 .info {
   display: inline-block;
+
   margin-left: 15px;
 }
 
@@ -32,15 +35,18 @@
 }
 
 .success {
+  position: relative;
+
   margin-top: 20px;
   padding: 20px;
-  position: relative;
-  background-color: var(--green-light);
+
   border-radius: 5px;
+  background-color: var(--green-light);
 }
 
 .successTitle {
   margin-bottom: 5px;
+
   font-weight: bold;
 }
 
@@ -48,6 +54,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
+
   cursor: pointer;
 }
 
@@ -55,7 +62,7 @@
   width: 148px;
 }
 
-@media (max-width: 1115px){
+@media (max-width: 1115px) {
   .form {
     grid-template-columns: [start] 1fr 1fr [end];
   }
@@ -73,13 +80,15 @@
   }
 }
 
-@media (max-width: 640px){
+@media (max-width: 640px) {
   .form {
     grid-template-columns: [start] 1fr [end];
   }
+
   .rating {
     order: -1;
   }
+
   .btn {
     width: 100%;
   }
