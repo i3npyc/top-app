@@ -55,6 +55,10 @@
   border-radius: 5px;
 }
 
+.rateTitle a {
+  color: var(--primary);
+}
+
 .title {
   align-self: flex-end;
 

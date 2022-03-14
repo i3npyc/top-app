@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import cn from 'classnames';
 
@@ -8,7 +8,11 @@ import { devlOfNum, priceRu } from '../../helpers/helpers';
 import { Button, Card, Divider, Rating, Tag, ReviewList } from '..';
 import styles from './Product.module.css';
 
-export const Product = ({ product }: ProductProps): JSX.Element => {
+export const Product = ({
+  product,
+  className,
+  ...props
+}: ProductProps): JSX.Element => {
   const {
     _id,
     image,
@@ -28,13 +32,22 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
   } = product;
 
   const [isReview, setIsReview] = useState<boolean>(false);
+  const reviewRef = useRef<HTMLDivElement>(null);
 
   const toggleReview = () => {
     setIsReview(!isReview);
   };
 
+  const scrollToReview = () => {
+    setIsReview(true);
+    reviewRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
+
   return (
-    <>
+    <div className={className} {...props}>
       <Card className={styles.product}>
         <div className={styles.logo}>
           <Image
@@ -69,7 +82,10 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
         <div className={styles.priceTitle}>цена</div>
         <div className={styles.creditTitle}>кредит</div>
         <div className={styles.rateTitle}>
-          {reviewCount} {devlOfNum(reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+          <a href="#ref" onClick={scrollToReview}>
+            {reviewCount}{' '}
+            {devlOfNum(reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+          </a>
         </div>
         <Divider className={styles.hr} />
         <div className={styles.description}>{description}</div>
@@ -116,7 +132,12 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
           </Button>
         </div>
       </Card>
-      <ReviewList isReview={isReview} reviews={reviews} productId={_id} />
-    </>
+      <ReviewList
+        ref={reviewRef}
+        isReview={isReview}
+        reviews={reviews}
+        productId={_id}
+      />
+    </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 
 import { TopPageComponentProps } from './TopPage.props';
 import { TopLevelCategory } from '../../interfaces/page.interface';
@@ -33,6 +33,10 @@ export const TopPageComponent = ({
     dispathSort({ type: sort });
   };
 
+  useEffect(() => {
+    dispathSort({ type: 'UPDATE', initialState: products });
+  }, [products]);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
@@ -44,7 +48,7 @@ export const TopPageComponent = ({
       </div>
       <div>
         {sortedProducts?.map(product => (
-          <Product key={product._id} product={product}/>
+          <Product key={product._id} product={product} />
         ))}
       </div>
       <div className={styles.hhTitle}>
