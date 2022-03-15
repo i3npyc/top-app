@@ -15,6 +15,7 @@ import {
   Tag
 } from '../../components';
 import styles from './TopPage.module.css';
+import { useScrollY } from '../../hooks/useScrollY';
 
 export const TopPageComponent = ({
   page,
@@ -48,7 +49,7 @@ export const TopPageComponent = ({
       </div>
       <div>
         {sortedProducts?.map(product => (
-          <Product key={product._id} product={product} />
+          <Product layout key={product._id} product={product} />
         ))}
       </div>
       <div className={styles.hhTitle}>
