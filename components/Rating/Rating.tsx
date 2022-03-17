@@ -10,7 +10,7 @@ import cn from 'classnames';
 
 import { RatingProps } from './RatingProps';
 import styles from './Rating.module.css';
-import StarIcon from './Star.svg';
+import StarIcon from './star.svg';
 
 export const Rating = forwardRef(
   (
