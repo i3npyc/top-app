@@ -1,18 +1,21 @@
 .header {
-  margin: 15px 15px 10px 15px;
+  margin: 15px 15px 10px;
   grid-template-columns: 1fr 40px;
   gap: 10px;
 }
 
 .mobileMenu {
-  padding: 25px 10px;
   position: fixed;
   z-index: 10;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
+
   overflow-y: scroll;
+
+  padding: 25px 10px;
+
   background-color: #F5F6F8;
 }
 

@@ -1,6 +1,8 @@
 .review {
   overflow: hidden;
+
   padding: 30px;
+
   transform: translate(0, -5px);
 }
 

@@ -3,6 +3,8 @@
   height: 100%;
   padding: 7px 15px;
 
+  resize: none;
+
   color: var(--black);
   border: 1px solid transparent;
   border-radius: 5px;
@@ -13,8 +15,6 @@
   font-family: var(--font-family);
   font-size: 16px;
   line-height: 22px;
-
-  resize: none;
 }
 
 .textarea::placeholder {
@@ -33,5 +33,6 @@
   position: absolute;
   top: -22px;
   left: 0;
+
   color: var(--red);
 }

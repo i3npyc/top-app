@@ -10,16 +10,19 @@ import {
 import { ProductModel } from '../../interfaces/product.interface';
 import { MenuItem } from '../../interfaces/menu.interface';
 import { firstLevelMenu } from '../../helpers/helpers';
+import { API } from '../../helpers/api';
 
 import { withLayout } from '../../layout/Layout';
 import { TopPageComponent } from '../../page-components';
-import { API } from '../../helpers/api';
+import { Error404 } from '../404';
 
 const TopPage = ({
   firstCategory,
   page,
   products
 }: TopPageProps): JSX.Element => {
+  if (!page || !products) return <Error404 />;
+
   return (
     <TopPageComponent
       firstCategory={firstCategory}

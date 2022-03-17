@@ -1,8 +1,9 @@
 .product {
-  display: grid;
-
   position: relative;
   z-index: 1;
+
+  display: grid;
+
   margin-top: 30px;
   padding: 30px;
   grid-template-columns:

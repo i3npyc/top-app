@@ -32,29 +32,30 @@
   margin-left: 12px;
   padding-left: 32px;
 
-  border-left: 1px solid #DFDFDF;
-
   list-style: none;
+
+  border-left: 1px solid #DFDFDF;
 }
 
 .secondLevel {
   margin-bottom: 10px;
+  padding: 0;
 
   cursor: pointer;
   text-transform: uppercase;
 
   color: var(--grey-dark);
+  border: none;
+
+  background: none;
 
   font-size: 12px;
   font-weight: 300;
-
-  background: none;
-  border: none;
-  padding: 0;
 }
 
 .secondLevelBlock {
   overflow: hidden;
+
   list-style: none;
 }
 
@@ -67,10 +68,10 @@
   transition: all 0.2s;
 
   color: var(--grey-dark);
+  outline-offset: -2px;
 
   font-size: 14px;
   font-weight: 500;
-  outline-offset: -2px;
 }
 
 .ThirdLevelList {

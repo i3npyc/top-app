@@ -13,7 +13,7 @@ export const Product = motion(
   forwardRef(
     (
       { product, className, ...props }: ProductProps,
-      ref: ForwardedRef<HTMLDivElement>
+      ref: ForwardedRef<HTMLLIElement>
     ): JSX.Element => {
       const {
         _id,
@@ -145,7 +145,7 @@ export const Product = motion(
                 onClick={toggleReview}
                 appearance="ghost"
                 arrow={isReview ? 'down' : 'right'}
-                aria-expanded={isReview}
+                aria-expanded={isReview ? 'true' : 'false'}
               >
                 Читать отзывы
               </Button>
