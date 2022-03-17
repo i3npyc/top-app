@@ -21,14 +21,19 @@ export const ReviewList = forwardRef(
         variants={variants}
         initial="hidden"
       >
-        <Card color="blue" className={cn(styles.review)} ref={ref}>
+        <Card
+          color="blue"
+          className={cn(styles.review)}
+          ref={ref}
+          tabIndex={isReview ? 1 : -1}
+        >
           {reviews.map(review => (
             <div key={review._id}>
               <Review review={review} />
               <Divider />
             </div>
           ))}
-          <ReviewForm productId={productId} />
+          <ReviewForm productId={productId} isReview={isReview} />
         </Card>
       </motion.div>
     );

@@ -41,7 +41,6 @@
 
   font-size: 12px;
   font-weight: 300;
-  line-height: 16px;
 }
 
 .secondLevelBlock {
@@ -56,11 +55,11 @@
   cursor: pointer;
   transition: all 0.2s;
 
-  color: var(--grat-dark);
+  color: var(--grey-dark);
 
   font-size: 14px;
   font-weight: 500;
-  line-height: 19px;
+  outline-offset: -2px;
 }
 
 .thirdLevelActive,

@@ -13,6 +13,7 @@ import styles from './ReviewForm.module.css';
 
 export const ReviewForm = ({
   productId,
+  isReview,
   className,
   ...props
 }: ReviewFormProps): JSX.Element => {
@@ -63,6 +64,7 @@ export const ReviewForm = ({
           })}
           placeholder="Имя"
           error={errors.name}
+          tabIndex={isReview ? 0 : -1}
         />
         <Input
           {...register('title', {
@@ -71,6 +73,7 @@ export const ReviewForm = ({
           placeholder="Заголовок отзыва"
           error={errors.title}
           className={styles.titleInput}
+          tabIndex={isReview ? 0 : -1}
         />
         <div className={styles.rating}>
           <span>Оценка:</span>
@@ -87,6 +90,7 @@ export const ReviewForm = ({
                 ref={field.ref}
                 setRating={field.onChange}
                 error={errors.rating}
+                tabIndex={isReview ? 0 : -1}
               />
             )}
           />
@@ -98,9 +102,14 @@ export const ReviewForm = ({
           placeholder="Текст отзыва"
           className={styles.description}
           error={errors.description}
+          tabIndex={isReview ? 0 : -1}
         />
         <div className={styles.submit}>
-          <Button appearance="primary" className={styles.btn}>
+          <Button
+            appearance="primary"
+            tabIndex={isReview ? 0 : -1}
+            className={styles.btn}
+          >
             Отправить
           </Button>
           <span className={styles.info}>

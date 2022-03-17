@@ -46,6 +46,7 @@ export const Product = motion(
           behavior: 'smooth',
           block: 'start'
         });
+        reviewRef.current?.focus()
       };
 
       return (
