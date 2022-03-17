@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import cn from 'classnames';
 
 import { HeaderProps } from './HeaderProps';
@@ -14,10 +14,11 @@ import styles from './Header.module.css';
 export const Header = ({ className, ...props }: HeaderProps) => {
   const [isOpend, setIsOpend] = useState<boolean>(false);
   const router = useRouter();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     setIsOpend(false);
-  }, [router])
+  }, [router]);
 
   const variants = {
     opened: {
@@ -28,10 +29,10 @@ export const Header = ({ className, ...props }: HeaderProps) => {
       }
     },
     closed: {
-      opacity: 0,
-      x: '100%',
+      opacity: shouldReduceMotion ? 1 : 0,
+      x: '100%'
     }
-  }
+  };
 
   const openMenu = () => {
     setIsOpend(true);
@@ -45,7 +46,12 @@ export const Header = ({ className, ...props }: HeaderProps) => {
     <header className={cn(className, styles.header)} {...props}>
       <Logo />
       <ButtonIcon appearance="white" icon="burger" onClick={openMenu} />
-      <motion.div className={styles.mobileMenu} variants={variants} initial={'closed'} animate={isOpend ? 'opened' : 'closed'}>
+      <motion.div
+        className={styles.mobileMenu}
+        variants={variants}
+        initial={'closed'}
+        animate={isOpend ? 'opened' : 'closed'}
+      >
         <Sidebar />
         <ButtonIcon
           className={styles.menuClose}

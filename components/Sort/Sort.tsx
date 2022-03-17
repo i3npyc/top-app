@@ -28,9 +28,13 @@ export const Sort = ({
 
   return (
     <div className={cn(styles.sort, className)} {...props}>
+      <div className={styles.sortName}>Сортировка </div>
       <span
+        id="rating"
         onClick={sortRating}
         tabIndex={0}
+        aria-selected={sort === SortEnum.Rating}
+        aria-labelledby="sort rating"
         className={cn({
           [styles.active]: sort === SortEnum.Rating
         })}
@@ -42,8 +46,11 @@ export const Sort = ({
         По рейтингу
       </span>
       <span
+        id="price"
         onClick={sortPrice}
         tabIndex={0}
+        aria-selected={sort === SortEnum.Price}
+        aria-labelledby="sort price"
         className={cn({
           [styles.active]: sort === SortEnum.Price
         })}

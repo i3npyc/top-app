@@ -43,6 +43,10 @@
   margin-top: 15px;
 }
 
+.productWrapper {
+  list-style: none;
+}
+
 @media (max-width: 1024px) {
   .title {
     grid-template-columns: auto 1fr;

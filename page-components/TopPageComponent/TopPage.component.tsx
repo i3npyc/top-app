@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from 'react';
+import { useReducedMotion } from 'framer-motion';
 
 import { TopPageComponentProps } from './TopPage.props';
 import { TopLevelCategory } from '../../interfaces/page.interface';
@@ -15,7 +16,6 @@ import {
   Tag
 } from '../../components';
 import styles from './TopPage.module.css';
-import { useScrollY } from '../../hooks/useScrollY';
 
 export const TopPageComponent = ({
   page,
@@ -29,6 +29,7 @@ export const TopPageComponent = ({
       sort: SortEnum.Rating
     }
   );
+  const shouldReduceMotion = useReducedMotion();
 
   const setSort = (sort: SortEnum) => {
     dispathSort({ type: sort });
@@ -42,16 +43,24 @@ export const TopPageComponent = ({
     <div className={styles.wrapper}>
       <div className={styles.title}>
         <Htag tag="h1">{page?.title}</Htag>
-        <Tag color="grey" size="medium">
+        <Tag
+          color="grey"
+          size="medium"
+          aria-label={products.length + 'элементы'}
+        >
           {products?.length}
         </Tag>
         <Sort sort={sort} setSort={setSort} />
       </div>
-      <div>
+      <ul className={styles.productWrapper}>
         {sortedProducts?.map(product => (
-          <Product layout key={product._id} product={product} />
+          <Product
+            layout={shouldReduceMotion ? false : true}
+            key={product._id}
+            product={product}
+          />
         ))}
-      </div>
+      </ul>
       <div className={styles.hhTitle}>
         <Htag tag="h2">Вакансии - {page?.category}</Htag>
         <Tag color="red" size="medium">

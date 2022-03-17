@@ -46,11 +46,11 @@ export const Product = motion(
           behavior: 'smooth',
           block: 'start'
         });
-        reviewRef.current?.focus()
+        reviewRef.current?.focus();
       };
 
       return (
-        <div className={className} {...props} ref={ref}>
+        <li className={className} {...props} ref={ref}>
           <Card className={styles.product}>
             <div className={styles.logo}>
               <Image
@@ -62,17 +62,25 @@ export const Product = motion(
             </div>
             <div className={styles.title}>{title}</div>
             <div className={styles.price}>
-              {priceRu(price)}
+              <span>
+                <span className="visualyHidden">цена</span>
+                {priceRu(price)}
+              </span>
               {oldPrice && (
                 <Tag className={styles.sale} color="green">
+                  <span className="visualyHidden">скидка</span>
                   {priceRu(price - oldPrice)}
                 </Tag>
               )}
             </div>
             <div className={styles.credit}>
+              <span className="visualyHidden">кредит</span>
               {priceRu(credit)}/<span>мес</span>
             </div>
             <div className={styles.rating}>
+              <span className="visualyHidden">
+                {'рейтинг' + product.reviewAvg ?? product.initialRating}
+              </span>
               <Rating rating={reviewAvg ?? initialRating} />
             </div>
             <div className={styles.tags}>
@@ -82,8 +90,12 @@ export const Product = motion(
                 </Tag>
               ))}
             </div>
-            <div className={styles.priceTitle}>цена</div>
-            <div className={styles.creditTitle}>кредит</div>
+            <div className={styles.priceTitle} aria-hidden={true}>
+              цена
+            </div>
+            <div className={styles.creditTitle} aria-hidden={true}>
+              кредит
+            </div>
             <div className={styles.rateTitle}>
               <a href="#ref" onClick={scrollToReview}>
                 {reviewCount}{' '}
@@ -133,6 +145,7 @@ export const Product = motion(
                 onClick={toggleReview}
                 appearance="ghost"
                 arrow={isReview ? 'down' : 'right'}
+                aria-expanded={isReview}
               >
                 Читать отзывы
               </Button>
@@ -144,7 +157,7 @@ export const Product = motion(
             reviews={reviews}
             productId={_id}
           />
-        </div>
+        </li>
       );
     }
   )

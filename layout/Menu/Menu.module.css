@@ -23,12 +23,18 @@
   fill: var(--primary);
 }
 
+.firstLeveList {
+  list-style: none;
+}
+
 .secondBlock {
   margin-top: 14px;
   margin-left: 12px;
   padding-left: 32px;
 
   border-left: 1px solid #DFDFDF;
+
+  list-style: none;
 }
 
 .secondLevel {
@@ -41,10 +47,15 @@
 
   font-size: 12px;
   font-weight: 300;
+
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .secondLevelBlock {
   overflow: hidden;
+  list-style: none;
 }
 
 .thirdLevel {
@@ -60,6 +71,10 @@
   font-size: 14px;
   font-weight: 500;
   outline-offset: -2px;
+}
+
+.ThirdLevelList {
+  list-style: none;
 }
 
 .thirdLevelActive,

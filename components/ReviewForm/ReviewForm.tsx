@@ -22,7 +22,8 @@ export const ReviewForm = ({
     control,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
+    clearErrors
   } = useForm<IReviewForm>();
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [isError, setIsError] = useState<string>();
@@ -55,6 +56,10 @@ export const ReviewForm = ({
     setIsError(undefined);
   };
 
+  const cleanErrors = () => {
+    clearErrors();
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={cn(styles.form, className)} {...props}>
@@ -65,6 +70,7 @@ export const ReviewForm = ({
           placeholder="Имя"
           error={errors.name}
           tabIndex={isReview ? 0 : -1}
+          aria-invalid={errors.name ? true : false}
         />
         <Input
           {...register('title', {
@@ -74,6 +80,7 @@ export const ReviewForm = ({
           error={errors.title}
           className={styles.titleInput}
           tabIndex={isReview ? 0 : -1}
+          aria-invalid={errors.title ? true : false}
         />
         <div className={styles.rating}>
           <span>Оценка:</span>
@@ -103,12 +110,15 @@ export const ReviewForm = ({
           className={styles.description}
           error={errors.description}
           tabIndex={isReview ? 0 : -1}
+          aria-label="Текст отзыва"
+          aria-invalid={errors.description ? true : false}
         />
         <div className={styles.submit}>
           <Button
             appearance="primary"
             tabIndex={isReview ? 0 : -1}
             className={styles.btn}
+            onClick={cleanErrors}
           >
             Отправить
           </Button>
@@ -119,16 +129,28 @@ export const ReviewForm = ({
         </div>
       </div>
       {isSuccess && (
-        <div className={cn(styles.panel, styles.success)}>
+        <div className={cn(styles.panel, styles.success)} role="alert">
           <div className={styles.successTitle}>Ваш отзыв отправлен</div>
           <div>Спасибо, ваш отзыв будет опубликован после проверки.</div>
-          <CloseIcon className={styles.close} onClick={closeSuccess} />
+          <button
+            onClick={closeSuccess}
+            className={styles.close}
+            area-label="Закрыть оповещение"
+          >
+            <CloseIcon />
+          </button>
         </div>
       )}
       {isError && (
-        <div className={cn(styles.panel, styles.error)}>
+        <div className={cn(styles.panel, styles.error)} role="alert">
           <div>{isError}</div>
-          <CloseIcon className={styles.close} onClick={closeError} />
+          <button
+            className={styles.close}
+            onClick={closeError}
+            area-label="Закрыть оповещение"
+          >
+            <CloseIcon />
+          </button>
         </div>
       )}
     </form>
